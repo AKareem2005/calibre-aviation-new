@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-// ✅ USING THE WORKING ENDPOINT (same as your navbar)
+// ✅ USING THE WORKING ENDPOINT
 const FORMZERO_ENDPOINT = "https://calibre-forms1.in0you2005.workers.dev/api/forms/contact-form/submissions";
 
 function Home() {
@@ -506,12 +506,15 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
             </li>
           ))}
         </ul>
-        <button
+       <button
           onClick={onEnquireClick}
-          className="rounded-full gradient-gold text-accent-foreground text-sm font-semibold px-4 py-2 shadow-gold hover:opacity-90 transition animate-pulse-ring"
-        >
-          Enquire now
-        </button>
+          className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 shadow-lg hover:shadow-orange-500/30 transition-all duration-300 cursor-pointer animate-pulse-ring"
+          style={{ transform: 'rotate(2deg)' }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(2deg)'}
+         >
+         Enquire now
+       </button>
       </nav>
     </header>
   );

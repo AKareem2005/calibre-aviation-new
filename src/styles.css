@@ -148,3 +148,158 @@
     letter-spacing: 0.005em;
   }
 }
+
+/* ========== SKYBACKDROP ANIMATIONS ========== */
+
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px));
+  }
+}
+
+@keyframes planeFly {
+  0% {
+    transform: translateX(calc(100vw + 150px)) translateY(10vh) rotate(-10deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-150px) translateY(70vh) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+.animate-cloud {
+  animation: cloudDrift linear infinite;
+  will-change: transform;
+}
+
+.animate-plane-fly {
+  animation: planeFly 22s ease-in-out infinite;
+  will-change: transform;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* ========== CURSOR FIXES ========== */
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* ========== EXISTING ANIMATIONS (if any) ========== */
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(249, 115, 22, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: reveal 0.6s ease-out forwards;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes radar {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-radar {
+  animation: radar 1.5s ease-out infinite;
+}
+
+@keyframes runway {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.animate-runway {
+  animation: runway 2.5s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
