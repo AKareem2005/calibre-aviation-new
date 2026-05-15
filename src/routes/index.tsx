@@ -6,7 +6,7 @@ import heroImg from "@/assets/aviation-hero.jpg";
 import terminalImg from "@/assets/aviation-terminal.jpg";
 import { Plane, MapPin, Phone, Mail, Clock, Star, ArrowRight, ShieldCheck, GraduationCap, Briefcase, Wallet, X, CheckCircle, User, Building } from "lucide-react";
 import { useState } from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/caa-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -493,16 +493,20 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         {/* Logo Section - Taller navbar allows bigger logo */}
         <a href="#top" className="flex items-center gap-3 group flex-shrink-0">
-          <img 
-            src={logo} 
-            alt="Calibre Aviation" 
-            className="h-20 w-auto object-contain"
-          />
-          <div>
-            <span className="font-display text-2xl tracking-wider block">CALIBRE</span>
-            <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground hidden sm:block">Aviation Academy</span>
-          </div>
-        </a>
+<img 
+  src={logo} 
+  alt="Calibre Aviation" 
+  className="h-20 w-auto object-contain"
+  style={{ 
+    backgroundColor: 'transparent',
+    mixBlendMode: 'multiply'
+  }}
+/>
+  <div className="hidden sm:block">
+    <span className="font-display text-xl tracking-wider">CALIBRE</span>
+    <span className="block text-[8px] font-mono uppercase tracking-widest text-muted-foreground">Aviation Academy</span>
+  </div>
+</a>
 
         {/* Desktop Navigation Links */}
         <ul className="hidden md:flex items-center gap-6 text-sm font-medium">
