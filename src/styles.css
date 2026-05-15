@@ -194,7 +194,7 @@
   cursor: pointer;
 }
 
-/* ========== EXISTING ANIMATIONS (if any) ========== */
+/* ========== EXISTING ANIMATIONS ========== */
 
 @keyframes blink {
   0%, 100% {
@@ -302,4 +302,133 @@
 
 .animate-marquee {
   animation: marquee 28s linear infinite;
+}
+
+/* ========== COURSE FINDER TEXT FIX ========== */
+
+/* Make main description text darker and readable */
+#finder .text-muted-foreground {
+  color: #1e293b !important;
+}
+
+.dark #finder .text-muted-foreground {
+  color: #94a3b8 !important;
+}
+
+/* Make the placeholder text in input darker */
+#finder input::placeholder {
+  color: #64748b !important;
+  opacity: 1;
+}
+
+.dark #finder input::placeholder {
+  color: #64748b !important;
+}
+
+/* Make the prompt buttons text readable */
+#finder button {
+  color: #1e293b !important;
+  background-color: #e2e8f0 !important;
+}
+
+.dark #finder button {
+  color: #f1f5f9 !important;
+  background-color: #334155 !important;
+}
+
+#finder button:hover {
+  background-color: #fbbf24 !important;
+  color: #0f172a !important;
+}
+
+/* Make the heading text stand out */
+#finder h2 {
+  color: #0f172a !important;
+}
+
+.dark #finder h2 {
+  color: #f8fafc !important;
+}
+
+/* Make the "Best match" tag readable */
+#finder .bg-accent {
+  background-color: #fbbf24 !important;
+  color: #0f172a !important;
+}
+
+/* Make the card text readable */
+#finder .bg-card h3 {
+  color: #0f172a !important;
+}
+
+.dark #finder .bg-card h3 {
+  color: #f8fafc !important;
+}
+
+/* No results message */
+#finder .text-center.text-muted-foreground {
+  color: #475569 !important;
+}
+
+.dark #finder .text-center.text-muted-foreground {
+  color: #94a3b8 !important;
+}
+
+/* ========== FINAL BOARDING CALL SECTION FIX ========== */
+
+/* Make all text in Visit section dark and readable */
+#visit p,
+#visit h2,
+#visit span,
+#visit li,
+#visit strong,
+#visit a:not([href^="tel"]):not([href^="mailto"]) {
+  color: #1e293b !important;
+}
+
+/* Make the gradient background lighter so dark text shows */
+#visit .gradient-sky {
+  background: linear-gradient(135deg, #e0f2fe 0%, #fef9c3 100%) !important;
+}
+
+/* Make phone and email buttons visible */
+#visit a[href^="tel"],
+#visit a[href^="mailto"] {
+  background-color: #1e293b !important;
+  color: white !important;
+  border: none !important;
+}
+
+#visit a[href^="tel"]:hover,
+#visit a[href^="mailto"]:hover {
+  background-color: #fbbf24 !important;
+  color: #1e293b !important;
+}
+
+/* Make the address text visible */
+#visit ul li span {
+  color: #1e293b !important;
+}
+
+#visit ul li strong {
+  color: #0f172a !important;
+}
+
+/* Dark mode support */
+.dark #visit p,
+.dark #visit h2,
+.dark #visit span,
+.dark #visit li,
+.dark #visit strong {
+  color: #f1f5f9 !important;
+}
+
+.dark #visit .gradient-sky {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+}
+
+.dark #visit a[href^="tel"],
+.dark #visit a[href^="mailto"] {
+  background-color: #fbbf24 !important;
+  color: #1e293b !important;
 }

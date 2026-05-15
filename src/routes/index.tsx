@@ -6,6 +6,7 @@ import heroImg from "@/assets/aviation-hero.jpg";
 import terminalImg from "@/assets/aviation-terminal.jpg";
 import { Plane, MapPin, Phone, Mail, Clock, Star, ArrowRight, ShieldCheck, GraduationCap, Briefcase, Wallet, X, CheckCircle, User, Building } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -489,15 +490,22 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
   ];
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-border/60">
-      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full gradient-sky text-primary-foreground">
-            <Plane className="h-4 w-4 -rotate-45" />
-          </span>
-          <span className="font-display text-2xl tracking-wider">CALIBRE</span>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground hidden sm:inline">Aviation Academy</span>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+        {/* Logo Section - Taller navbar allows bigger logo */}
+        <a href="#top" className="flex items-center gap-3 group flex-shrink-0">
+          <img 
+            src={logo} 
+            alt="Calibre Aviation" 
+            className="h-20 w-auto object-contain"
+          />
+          <div>
+            <span className="font-display text-2xl tracking-wider block">CALIBRE</span>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground hidden sm:block">Aviation Academy</span>
+          </div>
         </a>
-        <ul className="hidden lg:flex items-center gap-7 text-sm">
+
+        {/* Desktop Navigation Links */}
+        <ul className="hidden md:flex items-center gap-6 text-sm font-medium">
           {links.map((l) => (
             <li key={l.id}>
               <a href={`#${l.id}`} className="hover:text-primary transition">
@@ -506,15 +514,17 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
             </li>
           ))}
         </ul>
-       <button
+
+        {/* Enquire Button */}
+        <button
           onClick={onEnquireClick}
-          className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 shadow-lg hover:shadow-orange-500/30 transition-all duration-300 cursor-pointer animate-pulse-ring"
+          className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 shadow-lg hover:shadow-orange-500/30 transition-all duration-300 cursor-pointer animate-pulse-ring whitespace-nowrap"
           style={{ transform: 'rotate(2deg)' }}
           onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
           onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(2deg)'}
-         >
-         Enquire now
-       </button>
+        >
+          Enquire now
+        </button>
       </nav>
     </header>
   );
