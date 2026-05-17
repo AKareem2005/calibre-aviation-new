@@ -491,22 +491,22 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-border/60">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        {/* Logo Section - Taller navbar allows bigger logo */}
+        {/* Logo Section */}
         <a href="#top" className="flex items-center gap-3 group flex-shrink-0">
-<img 
-  src={logo} 
-  alt="Calibre Aviation" 
-  className="h-20 w-auto object-contain"
-  style={{ 
-    backgroundColor: 'transparent',
-    mixBlendMode: 'multiply'
-  }}
-/>
-  <div className="hidden sm:block">
-    <span className="font-display text-xl tracking-wider">CALIBRE</span>
-    <span className="block text-[8px] font-mono uppercase tracking-widest text-muted-foreground">Aviation Academy</span>
-  </div>
-</a>
+          <img 
+            src={logo} 
+            alt="Calibre Aviation" 
+            className="h-20 w-auto object-contain"
+            style={{ 
+              backgroundColor: 'transparent',
+              mixBlendMode: 'multiply'
+            }}
+          />
+<div className="flex flex-col">
+  <span className="font-display text-xl tracking-wider">CALIBRE</span>
+  <span className="block text-[8px] font-mono uppercase tracking-widest text-muted-foreground">Aviation Academy Pvt Ltd</span>
+</div>
+        </a>
 
         {/* Desktop Navigation Links */}
         <ul className="hidden md:flex items-center gap-6 text-sm font-medium">
