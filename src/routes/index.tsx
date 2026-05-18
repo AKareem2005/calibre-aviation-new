@@ -156,72 +156,79 @@ function Home() {
       <Ambience />
       <Testimonials />
       <Visit />
-      <section className="py-20 px-6 bg-black text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Branches</h2>
-            <p className="text-gray-400 text-lg">Visit our aviation academy branches across India</p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.3824903009745!2d83.30642399999999!3d17.726607999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQzJzM1LjgiTiA4M8KwMTgnMjMuMSJF!5e0!3m2!1sen!2sin!4v1778486299371!5m2!1sen!2sin"
-                width="100%"
-                height="280"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-              ></iframe>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-2">Visakhapatnam Branch</h3>
-                <p className="text-gray-400">Professional aviation training centre in Visakhapatnam.</p>
-              </div>
-            </div>
-            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-              <iframe
-                src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Rajahmundry&output=embed"
-                width="100%"
-                height="280"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-              ></iframe>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-2">Rajahmundry Branch</h3>
-                <p className="text-gray-400">Professional aviation training centre in Rajahmundry.</p>
-              </div>
-            </div>
-            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-              <iframe
-                src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Visakhapatnam&output=embed"
-                width="100%"
-                height="280"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-              ></iframe>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-2">Vijaywada Branch</h3>
-                <p className="text-gray-400">Aviation academy branch serving Vizag students.</p>
-              </div>
-            </div>
-            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-              <iframe
-                src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Hyderabad&output=embed"
-                width="100%"
-                height="280"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-              ></iframe>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-2">Hyderabad Branch</h3>
-                <p className="text-gray-400">Main aviation training branch near Hyderabad airport.</p>
-              </div>
-            </div>
-          </div>
+     <section className="py-20 px-6 bg-black text-white">
+  <div className="max-w-7xl mx-auto">
+    <div className="text-center mb-14">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Branches</h2>
+      <p className="text-gray-400 text-lg">Visit our aviation academy branches across India</p>
+    </div>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {/* Visakhapatnam Branch */}
+      <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.3824903009745!2d83.30642399999999!3d17.726607999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQzJzM1LjgiTiA4M8KwMTgnMjMuMSJF!5e0!3m2!1sen!2sin!4v1778486299371!5m2!1sen!2sin"
+          width="100%"
+          height="280"
+          style={{ border: 0 }}
+          loading="lazy"
+          allowFullScreen
+        ></iframe>
+        <div className="p-6">
+          <h3 className="text-2xl font-normal mb-2">Visakhapatnam Branch</h3>
+          <p className="text-gray-400">Professional aviation training centre in Visakhapatnam.</p>
         </div>
-      </section>
+      </div>
+
+      {/* Rajahmundry Branch */}
+      <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+        <iframe
+          src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Rajahmundry&output=embed"
+          width="100%"
+          height="280"
+          style={{ border: 0 }}
+          loading="lazy"
+          allowFullScreen
+        ></iframe>
+        <div className="p-6">
+          <h3 className="text-2xl font-normal mb-2">Rajahmundry Branch</h3>
+          <p className="text-gray-400">Professional aviation training centre in Rajahmundry.</p>
+        </div>
+      </div>
+
+      {/* Vijaywada Branch */}
+      <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+        <iframe
+          src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Visakhapatnam&output=embed"
+          width="100%"
+          height="280"
+          style={{ border: 0 }}
+          loading="lazy"
+          allowFullScreen
+        ></iframe>
+        <div className="p-6">
+          <h3 className="text-2xl font-normal mb-2">Vijaywada Branch</h3>
+          <p className="text-gray-400">Aviation academy branch serving Vijaywada students.</p>
+        </div>
+      </div>
+
+      {/* Hyderabad Branch */}
+      <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+        <iframe
+          src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Hyderabad&output=embed"
+          width="100%"
+          height="280"
+          style={{ border: 0 }}
+          loading="lazy"
+          allowFullScreen
+        ></iframe>
+        <div className="p-6">
+          <h3 className="text-2xl font-normal mb-2">Hyderabad Branch</h3>
+          <p className="text-gray-400">Main aviation training branch near Hyderabad airport.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       
       <section id="enquire-section" className="py-24 px-6 bg-zinc-950 text-white">
         <div className="max-w-3xl mx-auto">
@@ -491,28 +498,32 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-border/60">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        {/* Logo Section */}
+        {/* Logo + Text Section */}
         <a href="#top" className="flex items-center gap-3 group flex-shrink-0">
           <img 
             src={logo} 
             alt="Calibre Aviation" 
-            className="h-20 w-auto object-contain"
+            className="h-10 sm:h-14 md:h-20 w-auto object-contain"
             style={{ 
               backgroundColor: 'transparent',
               mixBlendMode: 'multiply'
             }}
           />
-<div className="flex flex-col">
-  <span className="font-display text-xl tracking-wider">CALIBRE</span>
-  <span className="block text-[8px] font-mono uppercase tracking-widest text-muted-foreground">Aviation Academy Pvt Ltd</span>
-</div>
+          <div className="flex flex-col">
+            <span className="font-display text-base sm:text-xl md:text-2xl tracking-wider ">
+              CALIBRE
+            </span>
+            <span className="text-[8px] sm:text-[10px] md:text-xs font-mono uppercase tracking-wider text-muted-foreground">
+              AVIATION ACADEMY PVT LTD
+            </span>
+          </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <ul className="hidden md:flex items-center gap-6 text-sm font-medium">
+        {/* Desktop Navigation Links - Larger text */}
+        <ul className="hidden md:flex items-center gap-8 text-base lg:text-lg font-medium">
           {links.map((l) => (
             <li key={l.id}>
-              <a href={`#${l.id}`} className="hover:text-primary transition">
+              <a href={`#${l.id}`} className="hover:text-primary transition whitespace-nowrap">
                 {l.label}
               </a>
             </li>
@@ -522,10 +533,10 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
         {/* Enquire Button */}
         <button
           onClick={onEnquireClick}
-          className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 shadow-lg hover:shadow-orange-500/30 transition-all duration-300 cursor-pointer animate-pulse-ring whitespace-nowrap"
-          style={{ transform: 'rotate(2deg)' }}
-          onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
-          onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(2deg)'}
+          className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base font-semibold px-4 sm:px-5 py-2 sm:py-2.5 shadow-lg transition-all duration-300 cursor-pointer animate-pulse-ring whitespace-nowrap"
+          style={{ transform: 'rotate(0deg)' }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(2deg)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
         >
           Enquire now
         </button>
@@ -533,7 +544,6 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
     </header>
   );
 }
-
 function Hero() {
   return (
     <section id="top" className="relative pt-12 pb-16 md:pt-20 md:pb-24 px-6">
@@ -543,7 +553,7 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-blink" /> Now boarding · Batch 2026
           </span>
           <h1 className="font-display text-6xl md:text-8xl leading-[0.95] mt-5 text-balance">
-            Your <span className="text-gradient-gold">aviation career</span>.
+            Your <span className="text-gradient-gold">Aviation career</span>.
             <br />
             Cleared for take-off in <span className="text-gradient-sky">6 months</span>.
           </h1>
@@ -551,9 +561,10 @@ function Hero() {
             Industry-aligned training. Real ex-airline faculty. Transparent fees, EMI options, and graduates working at Rajiv Gandhi International Airport — not just promises.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-<a href="#finder" className="inline-flex items-center gap-2 rounded-full bg-orange-500 text-white px-6 py-3 font-semibold shadow-lg hover:bg-orange-600 transition">
-  Find my course <ArrowRight className="h-4 w-4" />
-</a>
+            {/* Fixed "Find my course" button styling for better visibility */}
+            <a href="#finder" className="inline-flex items-center gap-2 rounded-full bg-orange-500 text-white px-6 py-3 font-semibold shadow-lg hover:bg-orange-600 transition">
+              Find my course <ArrowRight className="h-4 w-4" />
+            </a>
             <a href="#visit" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 font-semibold hover:bg-accent hover:text-accent-foreground transition">
               Book a campus visit
             </a>

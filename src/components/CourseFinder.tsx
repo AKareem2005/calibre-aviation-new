@@ -42,9 +42,9 @@ export function CourseFinder() {
             <Sparkles className="h-3.5 w-3.5" /> Find Your Runway
           </span>
           <h2 className="font-display text-5xl md:text-7xl mt-4 text-balance">
-            Tell us what you want.
+            Tell us what you want ?
             <br />
-            <span className="text-gradient-sky">We'll point you to the gate.</span>
+            <span className="text-gradient-sky">We'll point you to the gate 🛫</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
             Describe your dream day in one sentence — we'll match you to the right Calibre programme and the courses graduates pair it with.
