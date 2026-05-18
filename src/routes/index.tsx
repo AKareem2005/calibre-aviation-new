@@ -510,7 +510,7 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
             }}
           />
           <div className="flex flex-col">
-            <span className="font-display text-base sm:text-xl md:text-2xl tracking-wider ">
+            <span className="font-display text-base sm:text-xl md:text-3xl tracking-wider ">
               CALIBRE
             </span>
             <span className="text-[8px] sm:text-[10px] md:text-xs font-mono uppercase tracking-wider text-muted-foreground">
