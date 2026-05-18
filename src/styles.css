@@ -432,6 +432,7 @@
   background-color: #fbbf24 !important;
   color: #1e293b !important;
 }
+
 /* ========== FORCE LOGO TRANSPARENCY ========== */
 
 nav img {
@@ -444,3 +445,4 @@ nav a,
 nav .flex.items-center {
   background: transparent !important;
 }
+

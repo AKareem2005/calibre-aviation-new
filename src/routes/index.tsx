@@ -498,7 +498,7 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-border/60">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        {/* Logo + Text Section */}
+        {/* Logo Section */}
         <a href="#top" className="flex items-center gap-3 group flex-shrink-0">
           <img 
             src={logo} 
@@ -510,7 +510,7 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
             }}
           />
           <div className="flex flex-col">
-            <span className="font-display text-base sm:text-xl md:text-3xl tracking-wider ">
+            <span className="font-display text-xl sm:text-2xl md:text-3xl tracking-wider">
               CALIBRE
             </span>
             <span className="text-[8px] sm:text-[10px] md:text-xs font-mono uppercase tracking-wider text-muted-foreground">
@@ -519,7 +519,7 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
           </div>
         </a>
 
-        {/* Desktop Navigation Links - Larger text */}
+        {/* Desktop Navigation Links */}
         <ul className="hidden md:flex items-center gap-8 text-base lg:text-lg font-medium">
           {links.map((l) => (
             <li key={l.id}>
@@ -530,13 +530,10 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
           ))}
         </ul>
 
-        {/* Enquire Button */}
+        {/* Enquire Button - NO TILT, STRAIGHT ON ALL DEVICES */}
         <button
           onClick={onEnquireClick}
           className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base font-semibold px-4 sm:px-5 py-2 sm:py-2.5 shadow-lg transition-all duration-300 cursor-pointer animate-pulse-ring whitespace-nowrap"
-          style={{ transform: 'rotate(0deg)' }}
-          onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(2deg)'}
-          onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
         >
           Enquire now
         </button>
