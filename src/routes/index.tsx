@@ -819,10 +819,10 @@ function Visit() {
               Talk to a counsellor today. Walk through the campus tomorrow. Wear the uniform in six months.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="tel:+919063028362" className="inline-flex items-center gap-2 rounded-full gradient-gold text-accent-foreground px-6 py-3 font-semibold shadow-gold hover:opacity-90 transition animate-pulse-ring">
+              <a href="tel:+918341040921" className="inline-flex items-center gap-2 rounded-full gradient-gold text-accent-foreground px-6 py-3 font-semibold shadow-gold hover:opacity-90 transition animate-pulse-ring">
                 <Phone className="h-4 w-4" /> Call admissions
               </a>
-              <a href="mailto:calibreaviation@gmail.com" className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-6 py-3 font-semibold hover:bg-primary-foreground/10 transition">
+              <a href="mailto:zee@calibreaviation.in" className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-6 py-3 font-semibold hover:bg-primary-foreground/10 transition">
                 <Mail className="h-4 w-4" /> Email us
               </a>
             </div>
@@ -845,7 +845,7 @@ function Visit() {
             </li>
             <li className="flex gap-3">
               <Mail className="h-5 w-5 shrink-0 mt-0.5 text-accent" />
-              <span>calibreaviation@gmail.com</span>
+              <span>zee@calibreaviation.in</span>
             </li>
           </ul>
         </div>
