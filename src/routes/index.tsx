@@ -551,9 +551,9 @@ function Hero() {
             Industry-aligned training. Real ex-airline faculty. Transparent fees, EMI options, and graduates working at Rajiv Gandhi International Airport — not just promises.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#finder" className="inline-flex items-center gap-2 rounded-full gradient-sky text-primary-foreground px-6 py-3 font-semibold shadow-sky hover:opacity-90 transition">
-              Find my course <ArrowRight className="h-4 w-4" />
-            </a>
+<a href="#finder" className="inline-flex items-center gap-2 rounded-full bg-orange-500 text-white px-6 py-3 font-semibold shadow-lg hover:bg-orange-600 transition">
+  Find my course <ArrowRight className="h-4 w-4" />
+</a>
             <a href="#visit" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 font-semibold hover:bg-accent hover:text-accent-foreground transition">
               Book a campus visit
             </a>
