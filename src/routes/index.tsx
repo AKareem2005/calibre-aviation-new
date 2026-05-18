@@ -206,8 +206,8 @@ function Home() {
           allowFullScreen
         ></iframe>
         <div className="p-6">
-          <h3 className="text-2xl font-normal mb-2">Vijaywada Branch</h3>
-          <p className="text-gray-400">Aviation academy branch serving Vijaywada students.</p>
+          <h3 className="text-2xl font-normal mb-2">Vijayawada Branch</h3>
+          <p className="text-gray-400">Aviation academy branch serving Vijayawada students.</p>
         </div>
       </div>
 
