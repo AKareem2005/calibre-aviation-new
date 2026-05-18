@@ -7,22 +7,7 @@ import terminalImg from "@/assets/aviation-terminal.jpg";
 import { Plane, MapPin, Phone, Mail, Clock, Star, ArrowRight, ShieldCheck, GraduationCap, Briefcase, Wallet, X, CheckCircle, User, Building } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/caa-logo.png";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Calibre Aviation Academy — Job-ready in 6 months. Hyderabad." },
-      {
-        name: "description",
-        content: "Industry-aligned Cabin Crew, Ground Handling, Air Ticketing & Passenger Service training in Hyderabad. Real placements at Rajiv Gandhi International Airport. EMI options, transparent fees.",
-      },
-      { property: "og:title", content: "Calibre Aviation Academy — Hyderabad" },
-      { property: "og:description", content: "Launch your aviation career in 6 months. Real graduates. Real placements. Real airports." },
-      { property: "og:image", content: heroImg },
-    ],
-  }),
-  component: Home,
-});
+import { Clarity } from "@/components/Clarity";
 
 // ✅ USING THE WORKING ENDPOINT
 const FORMZERO_ENDPOINT = "https://calibre-forms1.in0you2005.workers.dev/api/forms/contact-form/submissions";
@@ -142,6 +127,7 @@ function Home() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <Clarity />
       <SkyBackdrop />
       <Nav onEnquireClick={() => {
         resetModal();
@@ -156,79 +142,79 @@ function Home() {
       <Ambience />
       <Testimonials />
       <Visit />
-     <section className="py-20 px-6 bg-black text-white">
-  <div className="max-w-7xl mx-auto">
-    <div className="text-center mb-14">
-      <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Branches</h2>
-      <p className="text-gray-400 text-lg">Visit our aviation academy branches across India</p>
-    </div>
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {/* Visakhapatnam Branch */}
-      <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.3824903009745!2d83.30642399999999!3d17.726607999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQzJzM1LjgiTiA4M8KwMTgnMjMuMSJF!5e0!3m2!1sen!2sin!4v1778486299371!5m2!1sen!2sin"
-          width="100%"
-          height="280"
-          style={{ border: 0 }}
-          loading="lazy"
-          allowFullScreen
-        ></iframe>
-        <div className="p-6">
-          <h3 className="text-2xl font-normal mb-2">Visakhapatnam Branch</h3>
-          <p className="text-gray-400">Professional aviation training centre in Visakhapatnam.</p>
-        </div>
-      </div>
+      <section className="py-20 px-6 bg-black text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Branches</h2>
+            <p className="text-gray-400 text-lg">Visit our aviation academy branches across India</p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Visakhapatnam Branch */}
+            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.3824903009745!2d83.30642399999999!3d17.726607999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQzJzM1LjgiTiA4M8KwMTgnMjMuMSJF!5e0!3m2!1sen!2sin!4v1778486299371!5m2!1sen!2sin"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
+              <div className="p-6">
+                <h3 className="text-2xl font-normal mb-2">Visakhapatnam Branch</h3>
+                <p className="text-gray-400">Professional aviation training centre in Visakhapatnam.</p>
+              </div>
+            </div>
 
-      {/* Rajahmundry Branch */}
-      <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-        <iframe
-          src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Rajahmundry&output=embed"
-          width="100%"
-          height="280"
-          style={{ border: 0 }}
-          loading="lazy"
-          allowFullScreen
-        ></iframe>
-        <div className="p-6">
-          <h3 className="text-2xl font-normal mb-2">Rajahmundry Branch</h3>
-          <p className="text-gray-400">Professional aviation training centre in Rajahmundry.</p>
-        </div>
-      </div>
+            {/* Rajahmundry Branch */}
+            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+              <iframe
+                src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Rajahmundry&output=embed"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
+              <div className="p-6">
+                <h3 className="text-2xl font-normal mb-2">Rajahmundry Branch</h3>
+                <p className="text-gray-400">Professional aviation training centre in Rajahmundry.</p>
+              </div>
+            </div>
 
-      {/* Vijaywada Branch */}
-      <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-        <iframe
-          src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Visakhapatnam&output=embed"
-          width="100%"
-          height="280"
-          style={{ border: 0 }}
-          loading="lazy"
-          allowFullScreen
-        ></iframe>
-        <div className="p-6">
-          <h3 className="text-2xl font-normal mb-2">Vijayawada Branch</h3>
-          <p className="text-gray-400">Aviation academy branch serving Vijayawada students.</p>
-        </div>
-      </div>
+            {/* Vijayawada Branch */}
+            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+              <iframe
+                src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Visakhapatnam&output=embed"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
+              <div className="p-6">
+                <h3 className="text-2xl font-normal mb-2">Vijayawada Branch</h3>
+                <p className="text-gray-400">Aviation academy branch serving Vijayawada students.</p>
+              </div>
+            </div>
 
-      {/* Hyderabad Branch */}
-      <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-        <iframe
-          src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Hyderabad&output=embed"
-          width="100%"
-          height="280"
-          style={{ border: 0 }}
-          loading="lazy"
-          allowFullScreen
-        ></iframe>
-        <div className="p-6">
-          <h3 className="text-2xl font-normal mb-2">Hyderabad Branch</h3>
-          <p className="text-gray-400">Main aviation training branch near Hyderabad airport.</p>
+            {/* Hyderabad Branch */}
+            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+              <iframe
+                src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Hyderabad&output=embed"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
+              <div className="p-6">
+                <h3 className="text-2xl font-normal mb-2">Hyderabad Branch</h3>
+                <p className="text-gray-400">Main aviation training branch near Hyderabad airport.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
       
       <section id="enquire-section" className="py-24 px-6 bg-zinc-950 text-white">
         <div className="max-w-3xl mx-auto">
@@ -498,7 +484,6 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-border/60">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        {/* Logo Section */}
         <a href="#top" className="flex items-center gap-3 group flex-shrink-0">
           <img 
             src={logo} 
@@ -519,7 +504,6 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
         <ul className="hidden md:flex items-center gap-8 text-base lg:text-lg font-medium">
           {links.map((l) => (
             <li key={l.id}>
@@ -530,7 +514,6 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
           ))}
         </ul>
 
-        {/* Enquire Button - NO TILT, STRAIGHT ON ALL DEVICES */}
         <button
           onClick={onEnquireClick}
           className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base font-semibold px-4 sm:px-5 py-2 sm:py-2.5 shadow-lg transition-all duration-300 cursor-pointer animate-pulse-ring whitespace-nowrap"
@@ -541,6 +524,7 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
     </header>
   );
 }
+
 function Hero() {
   return (
     <section id="top" className="relative pt-12 pb-16 md:pt-20 md:pb-24 px-6">
@@ -558,7 +542,6 @@ function Hero() {
             Industry-aligned training. Real ex-airline faculty. Transparent fees, EMI options, and graduates working at Rajiv Gandhi International Airport — not just promises.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            {/* Fixed "Find my course" button styling for better visibility */}
             <a href="#finder" className="inline-flex items-center gap-2 rounded-full bg-orange-500 text-white px-6 py-3 font-semibold shadow-lg hover:bg-orange-600 transition">
               Find my course <ArrowRight className="h-4 w-4" />
             </a>
@@ -881,3 +864,19 @@ function Footer() {
     </footer>
   );
 }
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Calibre Aviation Academy — Job-ready in 6 months. Hyderabad." },
+      {
+        name: "description",
+        content: "Industry-aligned Cabin Crew, Ground Handling, Air Ticketing & Passenger Service training in Hyderabad. Real placements at Rajiv Gandhi International Airport. EMI options, transparent fees.",
+      },
+      { property: "og:title", content: "Calibre Aviation Academy — Hyderabad" },
+      { property: "og:description", content: "Launch your aviation career in 6 months. Real graduates. Real placements. Real airports." },
+      { property: "og:image", content: heroImg },
+    ],
+  }),
+  component: Home,
+});
