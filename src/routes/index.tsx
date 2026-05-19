@@ -33,17 +33,18 @@ function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showFloatingButton, setShowFloatingButton] = useState(false);
   
-  const [mainFormData, setMainFormData] = useState({
+ const [mainFormData, setMainFormData] = useState({
+  name: '',
+  phone: '',
+  location: '',
+  course: '',
+  message: '',
+});
+
+  const [modalFormData, setModalFormData] = useState({
     name: '',
     phone: '',
     location: '',
-    message: '',
-  });
-  
-  const [modalFormData, setModalFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
     course: '',
     message: '',
   });
@@ -71,41 +72,43 @@ function Home() {
   };
 
   const handleMainFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      const response = await fetch(FORMZERO_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: mainFormData.name,
-          phone: mainFormData.phone,
-          location: mainFormData.location,
-          message: mainFormData.message,
-          _form_name: "Main Contact Form",
-          _timestamp: new Date().toISOString(),
-        }),
+  try {
+    const response = await fetch(FORMZERO_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: mainFormData.name,
+        phone: mainFormData.phone,
+        location: mainFormData.location,
+        course: mainFormData.course,
+        message: mainFormData.message,
+        _form_name: "Main Contact Form",
+        _timestamp: new Date().toISOString(),
+      }),
+    });
+
+    if (response.ok) {
+      alert("✅ Enquiry submitted successfully! We'll contact you within 24 hours.");
+      setMainFormData({ 
+        name: '', 
+        phone: '', 
+        location: '', 
+        course: '',
+        message: '' 
       });
-
-      if (response.ok) {
-        alert("✅ Enquiry submitted successfully! We'll contact you within 24 hours.");
-        setMainFormData({ 
-          name: '', 
-          phone: '', 
-          location: '', 
-          message: '' 
-        });
-      } else {
-        alert("❌ Submission failed. Please try again or call us directly.");
-      }
-    } catch (error) {
-      console.error('Submission error:', error);
-      alert("❌ Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
+    } else {
+      alert("❌ Submission failed. Please try again or call us directly.");
     }
-  };
+  } catch (error) {
+    console.error('Submission error:', error);
+    alert("❌ Something went wrong. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const handleModalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -118,8 +121,8 @@ function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: modalFormData.name,
-          email: modalFormData.email,
           phone: modalFormData.phone,
+          location: modalFormData.location,
           course: modalFormData.course,
           message: modalFormData.message,
           _form_name: "Modal Contact Form",
@@ -238,81 +241,106 @@ function Home() {
       </section>
       
       <section id="enquire-section" className="py-24 px-6 bg-zinc-950 text-white">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold mb-4">Enquire Now</h2>
-            <p className="text-gray-400 text-lg">Start your aviation career journey today.</p>
-          </div>
-          <form onSubmit={handleMainFormSubmit} className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Your Name <span className="text-red-500">*</span>
-              </label>
-              <input 
-                type="text" 
-                name="name" 
-                value={mainFormData.name}
-                onChange={handleMainFormChange}
-                placeholder="Your name" 
-                required 
-                className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
-              />
-            </div>
+  <div className="max-w-3xl mx-auto">
+    <div className="text-center mb-12">
+      <h2 className="text-5xl font-bold mb-4">Enquire Now</h2>
+      <p className="text-gray-400 text-lg">Start your aviation career journey today.</p>
+    </div>
+    <form onSubmit={handleMainFormSubmit} className="space-y-6">
+      {/* Name - Required */}
+      <div>
+        <label className="block text-sm font-medium text-gray-300 mb-2">
+          Your Name <span className="text-red-500">*</span>
+        </label>
+        <input 
+          type="text" 
+          name="name" 
+          value={mainFormData.name}
+          onChange={handleMainFormChange}
+          placeholder="Your name" 
+          required 
+          className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
+        />
+      </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Phone Number <span className="text-red-500">*</span>
-              </label>
-              <input 
-                type="tel" 
-                name="phone" 
-                value={mainFormData.phone}
-                onChange={handleMainFormChange}
-                placeholder="+91 98765 43210" 
-                required
-                className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
-              />
-            </div>
+      {/* Phone Number - Required */}
+      <div>
+        <label className="block text-sm font-medium text-gray-300 mb-2">
+          Phone Number <span className="text-red-500">*</span>
+        </label>
+        <input 
+          type="tel" 
+          name="phone" 
+          value={mainFormData.phone}
+          onChange={handleMainFormChange}
+          placeholder="+91 98765 43210" 
+          required
+          className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
+        />
+      </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Location <span className="text-red-500">*</span>
-              </label>
-              <input 
-                type="text" 
-                name="location" 
-                value={mainFormData.location}
-                onChange={handleMainFormChange}
-                placeholder="Your city / location" 
-                required
-                className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
-              />
-            </div>
+      {/* Location - Required */}
+      <div>
+        <label className="block text-sm font-medium text-gray-300 mb-2">
+          Location <span className="text-red-500">*</span>
+        </label>
+        <input 
+          type="text" 
+          name="location" 
+          value={mainFormData.location}
+          onChange={handleMainFormChange}
+          placeholder="Your city / location" 
+          required
+          className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
+        />
+      </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Message <span className="text-gray-500">(optional)</span>
-              </label>
-              <textarea 
-                name="message" 
-                value={mainFormData.message}
-                onChange={handleMainFormChange}
-                placeholder="Tell us about your career goals..." 
-                rows={4} 
-                className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition resize-none"
-              ></textarea>
-            </div>
+      {/* Course - Required */}
+      <div>
+        <label className="block text-sm font-medium text-gray-300 mb-2">
+          Course Interested In <span className="text-red-500">*</span>
+        </label>
+        <select 
+          name="course" 
+          value={mainFormData.course}
+          onChange={handleMainFormChange}
+          required
+          className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
+        >
+          <option value="">Select a course</option>
+          <option value="Cabin Crew">Cabin Crew</option>
+          <option value="Ground Handling">Ground Handling</option>
+          <option value="Air Ticketing">Air Ticketing</option>
+          <option value="Passenger Service Agent">Passenger Service Agent</option>
+          <option value="Pilot Training">Pilot Training</option>
+        </select>
+      </div>
 
-            <button 
-              type="submit" 
-              disabled={isSubmitting}
-              className="w-full rounded-2xl bg-yellow-500 text-black font-bold py-4 hover:bg-yellow-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? "Submitting..." : "Submit Enquiry →"}
-            </button>
-          </form>
-        </div>
-      </section>
+      {/* Message - Optional */}
+      <div>
+        <label className="block text-sm font-medium text-gray-300 mb-2">
+          Message <span className="text-gray-500">(optional)</span>
+        </label>
+        <textarea 
+          name="message" 
+          value={mainFormData.message}
+          onChange={handleMainFormChange}
+          placeholder="Tell us about your career goals..." 
+          rows={4} 
+          className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition resize-none"
+        ></textarea>
+      </div>
+
+      <button 
+        type="submit" 
+        disabled={isSubmitting}
+        className="w-full rounded-2xl bg-yellow-500 text-black font-bold py-4 hover:bg-yellow-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {isSubmitting ? "Submitting..." : "Submit Enquiry →"}
+      </button>
+    </form>
+  </div>
+</section>
       
       <Footer />
 
@@ -353,106 +381,88 @@ function Home() {
                     </p>
                   </div>
 
-                  <form onSubmit={handleModalSubmit} className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Your Name <span className="text-red-500">*</span>
-                      </label>
-                      <div className="relative">
-                        <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={modalFormData.name}
-                          onChange={handleModalInputChange}
-                          className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
-                          placeholder="Your name"
-                        />
-                      </div>
-                    </div>
+                 <form onSubmit={handleModalSubmit} className="space-y-4">
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Your Name <span className="text-red-500">*</span>
+    </label>
+    <div className="relative">
+      <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+      <input
+        type="text"
+        name="name"
+        required
+        value={modalFormData.name}
+        onChange={handleModalInputChange}
+        className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
+        placeholder="Your name"
+      />
+    </div>
+  </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address <span className="text-red-500">*</span>
-                      </label>
-                      <div className="relative">
-                        <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={modalFormData.email}
-                          onChange={handleModalInputChange}
-                          className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
-                          placeholder="your@email.com"
-                        />
-                      </div>
-                    </div>
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Phone Number <span className="text-red-500">*</span>
+    </label>
+    <div className="relative">
+      <Building size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+      <input
+        type="tel"
+        name="phone"
+        required
+        value={modalFormData.phone}
+        onChange={handleModalInputChange}
+        className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
+        placeholder="+91 98765 43210"
+      />
+    </div>
+  </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Phone Number
-                      </label>
-                      <div className="relative">
-                        <Building size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={modalFormData.phone}
-                          onChange={handleModalInputChange}
-                          className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
-                          placeholder="+91 98765 43210"
-                        />
-                      </div>
-                    </div>
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Location <span className="text-red-500">*</span>
+    </label>
+    <div className="relative">
+      <MapPin size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+      <input
+        type="text"
+        name="location"
+        required
+        value={modalFormData.location}
+        onChange={handleModalInputChange}
+        className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
+        placeholder="Your city / location"
+      />
+    </div>
+  </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Course Interested In
-                      </label>
-                      <select
-                        name="course"
-                        value={modalFormData.course}
-                        onChange={handleModalInputChange}
-                        className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
-                      >
-                        <option value="">Select a course</option>
-                        <option value="Cabin Crew">Cabin Crew</option>
-                        <option value="Ground Handling">Ground Handling</option>
-                        <option value="Air Ticketing">Air Ticketing</option>
-                        <option value="Passenger Service Agent">Passenger Service Agent</option>
-                        <option value="Pilot Training">Pilot Training</option>
-                      </select>
-                    </div>
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Message <span className="text-gray-500">(optional)</span>
+    </label>
+    <textarea
+      name="message"
+      rows={3}
+      value={modalFormData.message}
+      onChange={handleModalInputChange}
+      className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition resize-none"
+      placeholder="Tell us about your career goals..."
+    />
+  </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Message
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={3}
-                        value={modalFormData.message}
-                        onChange={handleModalInputChange}
-                        className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition resize-none"
-                        placeholder="Tell us about your career goals..."
-                      />
-                    </div>
+  <button
+    type="submit"
+    disabled={isSubmitting}
+    className="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+  >
+    {isSubmitting ? "Submitting..." : "Submit Enquiry"}
+    {!isSubmitting && <ArrowRight size={16} />}
+  </button>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                    >
-                      {isSubmitting ? "Submitting..." : "Submit Enquiry"}
-                      {!isSubmitting && <ArrowRight size={16} />}
-                    </button>
-
-                    <p className="text-center text-xs text-gray-400 mt-4">
-                      We will respond within 24 hours.
-                    </p>
-                  </form>
+  <p className="text-center text-xs text-gray-400 mt-4">
+    We will respond within 24 hours.
+  </p>
+</form>
                 </div>
               )}
 
