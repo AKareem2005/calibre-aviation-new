@@ -9,7 +9,22 @@ import { useState } from "react";
 import logo from "@/assets/caa-logo.png";
 import { Clarity } from "@/components/Clarity";
 
-// ✅ USING THE WORKING ENDPOINT
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Calibre Aviation Academy — Job-ready in 6 months. Hyderabad." },
+      {
+        name: "description",
+        content: "Industry-aligned Cabin Crew, Ground Handling, Air Ticketing & Passenger Service training in Hyderabad. Real placements at Rajiv Gandhi International Airport. EMI options, transparent fees.",
+      },
+      { property: "og:title", content: "Calibre Aviation Academy — Hyderabad" },
+      { property: "og:description", content: "Launch your aviation career in 6 months. Real graduates. Real placements. Real airports." },
+      { property: "og:image", content: heroImg },
+    ],
+  }),
+  component: Home,
+});
+
 const FORMZERO_ENDPOINT = "https://calibre-forms1.in0you2005.workers.dev/api/forms/contact-form/submissions";
 
 function Home() {
@@ -19,9 +34,8 @@ function Home() {
   
   const [mainFormData, setMainFormData] = useState({
     name: '',
-    email: '',
     phone: '',
-    course: '',
+    location: '',
     message: '',
   });
   
@@ -51,9 +65,8 @@ function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: mainFormData.name,
-          email: mainFormData.email,
           phone: mainFormData.phone,
-          course: mainFormData.course,
+          location: mainFormData.location,
           message: mainFormData.message,
           _form_name: "Main Contact Form",
           _timestamp: new Date().toISOString(),
@@ -64,9 +77,8 @@ function Home() {
         alert("✅ Enquiry submitted successfully! We'll contact you within 24 hours.");
         setMainFormData({ 
           name: '', 
-          email: '', 
           phone: '', 
-          course: '', 
+          location: '', 
           message: '' 
         });
       } else {
@@ -142,6 +154,7 @@ function Home() {
       <Ambience />
       <Testimonials />
       <Visit />
+      
       <section className="py-20 px-6 bg-black text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
@@ -149,7 +162,6 @@ function Home() {
             <p className="text-gray-400 text-lg">Visit our aviation academy branches across India</p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Visakhapatnam Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.3824903009745!2d83.30642399999999!3d17.726607999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQzJzM1LjgiTiA4M8KwMTgnMjMuMSJF!5e0!3m2!1sen!2sin!4v1778486299371!5m2!1sen!2sin"
@@ -164,8 +176,6 @@ function Home() {
                 <p className="text-gray-400">Professional aviation training centre in Visakhapatnam.</p>
               </div>
             </div>
-
-            {/* Rajahmundry Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
                 src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Rajahmundry&output=embed"
@@ -180,8 +190,6 @@ function Home() {
                 <p className="text-gray-400">Professional aviation training centre in Rajahmundry.</p>
               </div>
             </div>
-
-            {/* Vijayawada Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
                 src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Visakhapatnam&output=embed"
@@ -196,8 +204,6 @@ function Home() {
                 <p className="text-gray-400">Aviation academy branch serving Vijayawada students.</p>
               </div>
             </div>
-
-            {/* Hyderabad Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
                 src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Hyderabad&output=embed"
@@ -224,73 +230,70 @@ function Home() {
           </div>
           <form onSubmit={handleMainFormSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Your Name *</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Your Name <span className="text-red-500">*</span>
+              </label>
               <input 
                 type="text" 
                 name="name" 
                 value={mainFormData.name}
                 onChange={handleMainFormChange}
-                placeholder="Your Name" 
+                placeholder="Your name" 
                 required 
                 className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
               />
             </div>
+
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Your Email *</label>
-              <input 
-                type="email" 
-                name="email" 
-                value={mainFormData.email}
-                onChange={handleMainFormChange}
-                placeholder="Your Email" 
-                required 
-                className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Phone Number <span className="text-red-500">*</span>
+              </label>
               <input 
                 type="tel" 
                 name="phone" 
                 value={mainFormData.phone}
                 onChange={handleMainFormChange}
-                placeholder="Phone Number" 
+                placeholder="+91 98765 43210" 
+                required
                 className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
               />
             </div>
+
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Course Interested In</label>
-              <select 
-                name="course" 
-                value={mainFormData.course}
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Location <span className="text-red-500">*</span>
+              </label>
+              <input 
+                type="text" 
+                name="location" 
+                value={mainFormData.location}
                 onChange={handleMainFormChange}
-                className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
-              >
-                <option value="">Select a course</option>
-                <option value="Cabin Crew">Cabin Crew</option>
-                <option value="Ground Handling">Ground Handling</option>
-                <option value="Air Ticketing">Air Ticketing</option>
-                <option value="Passenger Service Agent">Passenger Service Agent</option>
-                <option value="Pilot Training">Pilot Training</option>
-              </select>
+                placeholder="Your city / location" 
+                required
+                className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
+              />
             </div>
+
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Your Message</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Message <span className="text-gray-500">(optional)</span>
+              </label>
               <textarea 
                 name="message" 
                 value={mainFormData.message}
                 onChange={handleMainFormChange}
-                placeholder="Your Message" 
-                rows={5} 
+                placeholder="Tell us about your career goals..." 
+                rows={4} 
                 className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition resize-none"
               ></textarea>
             </div>
+
             <button 
               type="submit" 
               disabled={isSubmitting}
               className="w-full rounded-2xl bg-yellow-500 text-black font-bold py-4 hover:bg-yellow-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? "Submitting..." : "Submit Enquiry"}
+              {isSubmitting ? "Submitting..." : "Submit Enquiry →"}
             </button>
           </form>
         </div>
@@ -864,19 +867,3 @@ function Footer() {
     </footer>
   );
 }
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Calibre Aviation Academy — Job-ready in 6 months. Hyderabad." },
-      {
-        name: "description",
-        content: "Industry-aligned Cabin Crew, Ground Handling, Air Ticketing & Passenger Service training in Hyderabad. Real placements at Rajiv Gandhi International Airport. EMI options, transparent fees.",
-      },
-      { property: "og:title", content: "Calibre Aviation Academy — Hyderabad" },
-      { property: "og:description", content: "Launch your aviation career in 6 months. Real graduates. Real placements. Real airports." },
-      { property: "og:image", content: heroImg },
-    ],
-  }),
-  component: Home,
-});
