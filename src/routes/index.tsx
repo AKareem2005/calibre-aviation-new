@@ -5,7 +5,7 @@ import { courses, reviews, placedAt, stats } from "@/data/calibre";
 import heroImg from "@/assets/aviation-hero.jpg";
 import terminalImg from "@/assets/aviation-terminal.jpg";
 import { Plane, MapPin, Phone, Mail, Clock, Star, ArrowRight, ShieldCheck, GraduationCap, Briefcase, Wallet, X, CheckCircle, User, Building } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "@/assets/caa-logo.png";
 import { Clarity } from "@/components/Clarity";
 
@@ -31,6 +31,7 @@ function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formState, setFormState] = useState<'form' | 'success' | 'error'>('form');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showFloatingButton, setShowFloatingButton] = useState(false);
   
   const [mainFormData, setMainFormData] = useState({
     name: '',
@@ -46,6 +47,20 @@ function Home() {
     course: '',
     message: '',
   });
+
+  // Scroll listener for floating button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowFloatingButton(true);
+      } else {
+        setShowFloatingButton(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleMainFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setMainFormData({ ...mainFormData, [e.target.name]: e.target.value });
@@ -471,6 +486,16 @@ function Home() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Floating Enquiry Button - appears when scrolled down */}
+      {showFloatingButton && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-50 rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base font-semibold px-5 py-3 shadow-lg transition-all duration-300 cursor-pointer animate-pulse-ring"
+        >
+          Enquire now
+        </button>
       )}
     </div>
   );
